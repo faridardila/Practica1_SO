@@ -14,6 +14,18 @@ El dataset elegido [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](https:/
 
 ## Acerca del programa
 
+
+### ¿Cómo utilizar el programa?
+
+Luego de realizar la compilación mediante la instrucción `make`, se ejecuta la siguiente instrucción en la terminal:
+
+```console
+./p2-dataProgram.c & ./p1-dataProgram.c 
+```
+
+De esta forma el programa de indexación y comunicación con el dataset se ejecutará en segundo plano y interfaz de usuario en primer plano.
+
+
 ### Campos de búsqueda
 
 Para el funcionamiento de la búsqueda de registros en el dataset, se escogieron los siguientes campos:
@@ -22,7 +34,7 @@ Para el funcionamiento de la búsqueda de registros en el dataset, se escogieron
 | :-------------- | :------------------------------------------------- | -------------|
 | **fecha** | el filtrado por fecha permitiría analizar cómo las conversaciones del COVID-19 evolucionaron a lo largo de distintos periodos (anuncio de la pandemia, distribución de vacunas, aparición de nuevas variantes).    |Fechas entre 2019 y el año actual|
 | **time** | el filtrado por tiempo permite detectar picos de tránsito en la aplicación por la cantidad de tweets publicados en horas específicas. Esto también está relacionado con la fecha, teniendo en cuenta los periodos clave durante la pandemia.       | Horas entre 00:00:00 y 23:00:00. |
-| **lang** | el filtrado por idioma permite entender los diferentes contextos culturales y geográficos durante el tiempo de la pandemia. Se puede analizar la percepción, preocupaciones y desinformación de distintas comunidades linguísticas.  | Código de 2 o 3 letras (alfabético).  |
+| **lang** | el filtrado por idioma permite entender los diferentes contextos culturales y geográficos durante el tiempo de la pandemia. Se puede analizar la percepción, preocupaciones y desinformación de distintas comunidades linguísticas.  | Código de 2 ó 3 letras (alfabético).  |
 
 
 No se consideró `pais` , ya que hay una gran cantidad de registros a la que no se tiene esta información, por lo que no sería útil para fines de investigación o análisis de datos. Tampoco se consideró el `id` como campo principal,teniendo en cuenta que es simplemente un identificador.
@@ -40,8 +52,12 @@ Para asegurar una búsqueda menor a 2 segundos, el sistema implementa una **tabl
 
 * **Creación del Índice**: Al iniciar el programa por primera vez (o si el archivo de índice no existe), se crea un archivo `index.bin`. Este archivo binario almacena la tabla de cabeceras de la tabla hash y los nodos del índice. Cada nodo contiene un offset que apunta al inicio de la línea correspondiente en el archivo CSV y un offset para manejar colisiones mediante listas enlazadas en el propio archivo `index.bin`.
 * **Función Hash**: Se utiliza la función `hash_djb2` para realizar la indexación a partir de la fecha. Para manejar las colisiones, se utilizan listas enlazadas.
-    * **¿Por qué el algoritmo djb2?**: 
+    * **¿Por qué el algoritmo djb2?**: El hash djb2 es un algoritmo de hashing ampliamente reconocido desarrollado por Daniel J. Bernstein a mediados de la década de 1990. Este algoritmo es particularmente admirado por su simplicidad y eficiencia, por lo que se tomó en cuenta para la implementación de la tabla hash, además de su practicidad si se toman strings como llaves para el hasheo.
 * **Búsqueda**: Cuando se realiza una búsqueda, el proceso de búsqueda accede directamente a las posiciones en el archivo CSV a través de los offsets almacenados en el `index.bin`, lo que evita la necesidad de cargar todo el dataset en memoria.
 
 
-## Ejemplos
+## Ejemplos de uso 
+
+Los ejemplos de uso se muestran en los siguientes videos:
+
+

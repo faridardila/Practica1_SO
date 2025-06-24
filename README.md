@@ -96,7 +96,7 @@ Para asegurar una búsqueda menor a dos segundos, el sistema implementa una **ta
         Además, la simplicidad de su implementación facilita su integración en el código, lo cual fue especialmente útil durante el desarrollo del sistema de indexación.
 
 
-* **Búsqueda**: Cuando se realiza una búsqueda, el proceso de búsqueda accede directamente a las posiciones en el archivo CSV a través de los offsets almacenados en el `index.bin`, lo que evita la necesidad de cargar todo el dataset en memoria.
+* **Búsqueda**: cuando se realiza una búsqueda, el proceso correspondiente accede directamente a las posiciones específicas dentro del archivo `.csv` utilizando los offsets almacenados en el archivo `index.bin`. Este enfoque permite acceder únicamente a los registros relevantes, evitando la carga completa del *dataset* en memoria y optimizando así el rendimiento del sistema.
 
 
 ## Ejemplos de uso 

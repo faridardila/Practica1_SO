@@ -86,7 +86,7 @@ Se utilizó memoria compartida y tuberías para diversas funcionalidades:
 ### Indexación
 Para asegurar una búsqueda menor a 2 segundos, el sistema implementa una **tabla hash**.
 
-* **Creación del Índice**: Al iniciar el programa por primera vez (o si el archivo de índice no existe), se crea un archivo `index.bin`. Este archivo binario almacena la tabla de cabeceras de la tabla hash y los nodos del índice. Cada nodo contiene un offset que apunta al inicio de la línea correspondiente en el archivo CSV y un offset para manejar colisiones mediante listas enlazadas en el propio archivo `index.bin`.
+* **Creación del Índice**: Al iniciar el programa por primera vez (o si el archivo de índice no existe), se crea un archivo `index.bin`. Este archivo binario almacena la tabla de cabeceras de la tabla hash y los nodos del índice. Cada nodo contiene `offset_csv` que apunta al inicio de la línea correspondiente en el archivo CSV y `offset_siguiente_nodo` que apunta al siguiente nodo para manejar colisiones mediante listas enlazadas en el propio archivo `index.bin`.
 * **Función Hash**: Se utiliza la función `hash_djb2` para realizar la indexación a partir de la fecha. Para manejar las colisiones, se utilizan listas enlazadas.
     * **¿Por qué el algoritmo djb2?**: El hash djb2 es un algoritmo de hashing desarrollado por Daniel J. Bernstein a mediados de la década de 1990. 
     

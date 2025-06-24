@@ -1,12 +1,17 @@
 
 # Práctica I - Sistemas Operativos
 
-### Integrantes del grupo
-
 | Nombre           | GitHub   | Contacto              |
 | ---------------- | -------- |-------------------------|
 | Deivid Farid Ardila Herrera | faridardila | deardilah@unal.edu.co |
 | Cristofer Damián Camilo Ordoñez Osa | cristoferOrdonez| crordonezo@unal.edu.co |
+
+
+## Tabla de Contenido
+1. [Acerca del dataset](#Acerca-del-dataset)
+2. [Acerca del programa](#Acerca-del-programa)
+3. [Justificación del programa](#Justificación-del-programa)
+4. [Ejemplos de uso](#Ejemplos-de-uso)
 
 ## Acerca del dataset
 
@@ -17,7 +22,7 @@ El dataset elegido [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](https:/
 | **fecha** | La fecha de publicación del tweet (AAAA-MM-DD).    |
 | **hora** | La hora de publicación del tweet (HH:MM:SS).       |
 | **idioma** | El idioma en el que fue escrito el tweet (ej: en, es, ru). |
-| **pais** | El lugar de proveniencia del tweet.                | 
+| **pais** | El lugar de proveniencia del tweet. (ej: PA, RU).               | 
 
 ## Acerca del programa
 
@@ -41,7 +46,7 @@ Para el correcto funcionamiento del programa, se ejecutan dos procesos no empare
     * buscar(): función la cual se comunica con el proceso de indexación/búsqueda para enviar los criterios de búsqueda y recibir los resultados, para mostrarlos en una tabla, además de la cantidad de registros encontrados.
 
   
-2. El primer proceso, con su código fuente `p2-dataProgram.c` se ocupa de la creación de la indexación y búsqueda de los registros de acuerdo con los criterios de búsqueda enviados por la interfaz de usuario.
+2. El primer proceso, con su código fuente `p1-dataProgram.c` se ocupa de la creación de la indexación y búsqueda de los registros de acuerdo con los criterios de búsqueda enviados por la interfaz de usuario.
     
     * crear_tabla_hash(): función para crear la tabla hash en disco (indexando el apuntador al registro en el CSV)
     * busqueda(): función para buscar en el CSV usando la tabla hash 
@@ -87,6 +92,53 @@ Para asegurar una búsqueda menor a 2 segundos, el sistema implementa una **tabl
 
 ## Ejemplos de uso 
 
-Los ejemplos de uso se muestran en los siguientes videos:
+Los ejemplos de uso se muestran a continuación:
+
+- Ejemplo 1: 
+    ```console
+    Fecha: 2020-03-08
+
+    Tiempo inicial: 00:00:00
+
+    Tiempo final: 00:00:00
+
+    Idioma: en
+    ```
+
+    Resultado: NA 
+
+    Video: [Ejemplo 1](https://drive.google.com/file/d/1yF3abt5WhG6Ga5k4F-qZr0c7M6LSZc5M/view?usp=sharing)
+
+- Ejemplo 2:
+
+    ```console
+    Fecha: 2021-01-01
+
+    Tiempo inicial: 02:02:02
+
+    Tiempo final: 02:02:02
+
+    Idioma: en
+    ```
+
+    Resultado: 13 registros encontrados
+
+    Video: [Ejemplo 2](https://drive.google.com/file/d/1-6B5TzvgpbSCA95nIgSeB-yKL_XSgTL-/view?usp=sharing)
+
+- Ejemplo 3:
+
+    ```console
+    Fecha: 2020-01-01
+    
+    Tiempo inicial: 20:28:39
+    
+    Tiempo final: 20:28:39
+    
+    Idioma: ru
+    ```
+
+    Resultado: 1 registro encontrado
+
+    Video: [Ejemplo 3](https://drive.google.com/file/d/15bwUQCBrp1Gmj93Isn6xhRJHGIDZckN_/view?usp=sharing)
 
 

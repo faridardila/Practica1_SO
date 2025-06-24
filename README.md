@@ -28,11 +28,18 @@ El dataset elegido [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](https:/
 
 ### ¿Cómo ejecutar el programa?
 
-Luego de realizar la compilación mediante la instrucción `make`, se ejecuta la siguiente instrucción en la terminal:
+Luego de realizar la compilación mediante la instrucción `make`, se puede ejecutar de dos maneras:
 
-```console
-./p2-dataProgram & ./p1-dataProgram
-```
+1. Utilizando la siguiente instrucción:
+
+    ```console
+    ./p2-dataProgram & ./p1-dataProgram
+    ```
+2. Mediante el script de bash:
+
+    ```console
+    ./executeme.sh
+    ```
 
 De esta forma el programa de indexación y comunicación con el dataset se ejecutará en segundo plano y interfaz de usuario en primer plano.
 

@@ -287,11 +287,10 @@ void ingresar_segundo_criterio(){
 
     limpiar_buffer();
 
-    int hora_inicial, minuto_inicial, segundo_inicial, hora_final, minuto_final, segundo_final;
+    int hora_inicial;
     char linea[100]; // buffer para leer la línea completa
     char caracter_extra; // variable para verificar si hay caracteres extra después del número
     int resultado_del_escaneo;
-    bool fecha_final_menor = false; // bandera para verificar que la fecha final sea posterior a la fecha inicial
 
     // ingresar tiempo inicial
 
@@ -323,161 +322,12 @@ void ingresar_segundo_criterio(){
         }
     } while (hora_inicial == -1);
 
-    // ingresar minuto inicial
-    do {
-        printf("Por favor, ingrese el minuto inicial (entre 0 y 59):\n");
-        if (fgets(linea, sizeof(linea), stdin) == NULL) {
-            printf("Error al leer la entrada.\n");
-            exit(1);
-        }
+    sprintf(criterio_tiempo_inicio, "%02d:00:00", hora_inicial);
 
-        resultado_del_escaneo = sscanf(linea, "%d %c", &minuto_inicial, &caracter_extra);
+    sprintf(criterio_tiempo_final, "%02d:59:59", hora_inicial);
 
-        if (resultado_del_escaneo == 2) {
-            if (caracter_extra != '\n') {
-                printf("Entrada no válida. Debe ingresar solo un número entero.\n");
-                minuto_inicial = -1;
-            }
-        } else if (resultado_del_escaneo == 1) {
-            // caso ideal
-        } else {
-            printf("Entrada no válida. Debe ingresar un número entero.\n");
-            minuto_inicial = -1;
-        }
-
-        if (minuto_inicial != -1 && (minuto_inicial < 0 || minuto_inicial > 59)) {
-            printf("El minuto inicial %d no es válido. Debe estar entre 0 y 59.\n", minuto_inicial);
-            minuto_inicial = -1;
-        }
-    } while (minuto_inicial == -1);
-
-    // ingresar segundo inicial
-    do {
-        printf("Por favor, ingrese el segundo inicial (entre 0 y 59):\n");
-        if (fgets(linea, sizeof(linea), stdin) == NULL) {
-            printf("Error al leer la entrada.\n");
-            exit(1);
-        }
-
-        resultado_del_escaneo = sscanf(linea, "%d %c", &segundo_inicial, &caracter_extra);
-
-        if (resultado_del_escaneo == 2) {
-            if (caracter_extra != '\n') {
-                printf("Entrada no válida. Debe ingresar solo un número entero.\n");
-                segundo_inicial = -1;
-            }
-        } else if (resultado_del_escaneo == 1) {
-            // caso ideal
-        } else {
-            printf("Entrada no válida. Debe ingresar un número entero.\n");
-            segundo_inicial = -1;
-        }
-
-        if (segundo_inicial != -1 && (segundo_inicial < 0 || segundo_inicial > 59)) {
-            printf("El segundo inicial %d no es válido. Debe estar entre 0 y 59.\n", segundo_inicial);
-            segundo_inicial = -1;
-        }
-    } while (segundo_inicial == -1);
-
-    sprintf(criterio_tiempo_inicio, "%02d:%02d:%02d", hora_inicial, minuto_inicial, segundo_inicial);
-
-    // ingresar tiempo fianl
-
-    do{
- 
-        if(fecha_final_menor){
-            printf("La fecha final debe ser posterior a la fecha inicial\n");
-        }
-
-        // ingresar hora final
-        do {
-            printf("Por favor, ingrese la hora final (entre 0 y 23)\n");
-            if (fgets(linea, sizeof(linea), stdin) == NULL) {
-                printf("Error al leer la entrada.\n");
-                exit(1);
-            }
-
-            resultado_del_escaneo = sscanf(linea, "%d %c", &hora_final, &caracter_extra);
-
-            if (resultado_del_escaneo == 2) {
-                if (caracter_extra != '\n') {
-                    printf("Entrada no válida. Debe ingresar solo un número entero. (Ej: 12, no 12k)\n");
-                    hora_final = -1;
-                }
-            } else if (resultado_del_escaneo == 1) {
-                // caso ideal
-            } else {
-                printf("Entrada no válida. Debe ingresar un número entero.\n");
-                hora_final = -1;
-            }
-
-            if (hora_final != -1 && (hora_final < 0 || hora_final > 23)) {
-                printf("La hora final %d no es valida. Debe estar entre 0 y 23.\n", hora_final);
-                hora_final = -1;
-            }
-        } while (hora_final == -1);
-
-        // Ingresar minuto final
-        do {
-            printf("Por favor, ingrese el minuto final (entre 0 y 59):\n");
-            if (fgets(linea, sizeof(linea), stdin) == NULL) {
-                printf("Error al leer la entrada.\n");
-                exit(1);
-            }
-
-            resultado_del_escaneo = sscanf(linea, "%d %c", &minuto_final, &caracter_extra);
-
-            if (resultado_del_escaneo == 2) {
-                if (caracter_extra != '\n') {
-                    printf("Entrada no válida. Debe ingresar solo un número entero.\n");
-                    minuto_final = -1;
-                }
-            } else if (resultado_del_escaneo == 1) {
-                // caso ideal
-            } else {
-                printf("Entrada no válida. Debe ingresar un número entero.\n");
-                minuto_final = -1;
-            }
-
-            if (minuto_final != -1 && (minuto_final < 0 || minuto_final > 59)) {
-                printf("El minuto final %d no es válido. Debe estar entre 0 y 59.\n", minuto_final);
-                minuto_final = -1;
-            }
-        } while (minuto_final == -1);
-
-        // Ingresar segundo final
-        do {
-            printf("Por favor, ingrese el segundo final (entre 0 y 59):\n");
-            if (fgets(linea, sizeof(linea), stdin) == NULL) {
-                printf("Error al leer la entrada.\n");
-                exit(1);
-            }
-
-            resultado_del_escaneo = sscanf(linea, "%d %c", &segundo_final, &caracter_extra);
-
-            if (resultado_del_escaneo == 2) {
-                if (caracter_extra != '\n') {
-                    printf("Entrada no válida. Debe ingresar solo un número entero.\n");
-                    segundo_final = -1;
-                }
-            } else if (resultado_del_escaneo == 1) {
-                // caso ideal
-            } else {
-                printf("Entrada no válida. Debe ingresar un número entero.\n");
-                segundo_final = -1;
-            }
-
-            if (segundo_final != -1 && (segundo_final < 0 || segundo_final > 59)) {
-                printf("El segundo final %d no es válido. Debe estar entre 0 y 59.\n", segundo_final);
-                segundo_final = -1;
-            }
-        } while (segundo_final == -1);
-
-        sprintf(criterio_tiempo_final, "%02d:%02d:%02d", hora_final, minuto_final, segundo_final);
-
-        fecha_final_menor = true;
-
-    } while (strcmp(criterio_tiempo_final, criterio_tiempo_inicio) < 0);
+    printf("\nSu hora inicial es: %s\n", criterio_tiempo_inicio);
+    printf("Su hora fianl es: %s\n", criterio_tiempo_final);
     
 }
 

@@ -15,7 +15,7 @@
 
 ## Acerca del dataset
 
-El dataset seleccionado, [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv), recopila información de conversaciones publicadas en Twitter relacionadas con el COVID-19. Su propósito principal es apoyar investigaciones científicas. A continuación, se describen los datos contenidos en el conjunto datos:
+El *dataset* seleccionado, [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv), recopila información de conversaciones publicadas en Twitter relacionadas con el COVID-19. Su propósito principal es apoyar investigaciones científicas. A continuación, se describen los datos contenidos en el conjunto datos:
 | Campo           | Descripción                                        |
 | :-------------- | :------------------------------------------------- | 
 | **id** | El identificador unico para acceder a la información del tweet. | 
@@ -24,18 +24,19 @@ El dataset seleccionado, [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](h
 | **idioma** | El idioma en el que fue escrito el tweet (ej: en, es, ru). |
 | **pais** | El lugar de proveniencia del tweet. (ej: PA, RU).               | 
 
-**NOTA:** el data set original se encuentra en formato `.tsv`, sin sin embargo, para cumplir con los requerimientos de la practica, se conviritio a formato `.csv`. La versión con el nuevo formato puede encontrarse en este [*enlace*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv).
+**NOTA:** el *dataset* original se encuentra en formato `.tsv`, sin embargo, para cumplir con los requerimientos de la practica, se conviritio a formato `.csv`. La versión con el nuevo formato puede encontrarse en este [*enlace*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv).
 
-## Acerca del progra
+## Acerca del programa
 ### ¿Cómo ejecutar el programa?
 
-Se contemplan dos opciones, de acuerdo a la comodidad del usuario:
+Se ofrecen dos alternativas, según la conveniencia del usuario:"
 
-1. Utilizando la siguientes instrucciones:
+1. Ejecutando manualmente los comandos en consola:
 
     ```console
     make
     ./p2-dataProgram & ./p1-dataProgram
+    make clean //limpieza de ejecutables y archivos adicionales (no es necesario)
     ```
 2. Mediante el script de bash (con permisos de ejecución previamente concedidos al usuario):
 

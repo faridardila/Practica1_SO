@@ -47,7 +47,7 @@ De esta forma el programa de indexación y comunicación con el dataset se ejecu
 
 ###  Funciones Clave
 
-Para el correcto funcionamiento del programa, se ejecutan dos procesos no emparentados
+Para el correcto funcionamiento del programa, se ejecutan dos procesos no emparentados.
 
 1. El primer proceso, con su código fuente `p1-dataProgram.c` se ocupa de la interacción con el usuario.
 

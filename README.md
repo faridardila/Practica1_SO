@@ -50,15 +50,15 @@ De esta forma, el programa encargado de la indexación y comunicación con el *d
 
 Para el correcto funcionamiento del programa, se ejecutan dos procesos independientes (no emparentados) que se comunican entre sí.
 
-El primer proceso, con su código fuente `p1-dataProgram.c` se ocupa de la interacción con el usuario.
+El primer proceso, cuyo código fuente corresponde a `p1-dataProgram.c`, se encarga de la interacción con el usuario; entre sus funciones destaca:
 
-* buscar(): función la cual se comunica con el proceso de indexación/búsqueda para enviar los criterios de búsqueda y recibir los resultados, para mostrarlos en una tabla, además de la cantidad de registros encontrados.
+* `buscar()`: esta función se comunica con el proceso de indexación y búsqueda para enviar los criterios de búsqueda definidos por el usuario. Luego, recibe los resultados correspondientes, los presenta organizados en forma de tabla, e informa tanto la cantidad total de registros encontrados como el tiempo que tomó obtenerlos.
 
   
-El primer proceso, con su código fuente `p2-dataProgram.c` se ocupa de la creación de la indexación y búsqueda de los registros de acuerdo con los criterios de búsqueda enviados por la interfaz de usuario.
+El segundo proceso, implementado en el archivo `p2-dataProgram.c`, tiene como función principal la creación del archivo de indexación y la búsqueda de registros según los criterios recibidos. Sus funciones clave son:
     
-* crear_tabla_hash(): función para crear la tabla hash en disco (indexando el apuntador al registro en el CSV)
-* busqueda(): función para buscar los registros en el archivo CSV que tengan alguna coincidencia con los criterios de búsqueda, utilizando la tabla hash.
+* `crear_tabla_hash()`: construye una tabla hash almacenada en disco, indexando punteros que referencian directamente a los registros dentro del archivo `.csv`.
+* `busqueda()`: realiza la búsqueda eficiente de registros en el archivo `.csv` que coincidan con los criterios proporcionados, utilizando como apoyo la tabla hash previamente generada.
 
 
 ## Justificación del programa

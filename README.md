@@ -62,8 +62,8 @@ Para el funcionamiento de la búsqueda de registros en el dataset, se escogieron
 | Campo           | Justificación                                        | Rango     |
 | :-------------- | :------------------------------------------------- | -------------|
 | **fecha** | el filtrado por fecha permitiría analizar cómo las conversaciones del COVID-19 evolucionaron a lo largo de distintos periodos (anuncio de la pandemia, distribución de vacunas, aparición de nuevas variantes).    |Fechas entre 2019 y el año actual|
-| **time** | el filtrado por tiempo permite detectar picos de tránsito en la aplicación por la cantidad de tweets publicados en horas específicas. Esto también está relacionado con la fecha, teniendo en cuenta los periodos clave durante la pandemia.       | Horas entre 00:00:00 y 23:00:00. |
-| **lang** | el filtrado por idioma permite entender los diferentes contextos culturales y geográficos durante el tiempo de la pandemia. Se puede analizar la percepción, preocupaciones y desinformación de distintas comunidades linguísticas.  | Código de 2 ó 3 letras (alfabético).  |
+| **tiempo (inicial y final)** | el filtrado por tiempo permite detectar picos de tránsito en la aplicación por la cantidad de tweets publicados en horas específicas. Esto también está relacionado con la fecha, teniendo en cuenta los periodos clave durante la pandemia.       | Horas entre 00:00:00 y 23:00:00. |
+| **idioma** | el filtrado por idioma permite entender los diferentes contextos culturales y geográficos durante el tiempo de la pandemia. Se puede analizar la percepción, preocupaciones y desinformación de distintas comunidades linguísticas.  | Código de 2 ó 3 letras (alfabético).  |
 
 
 No se consideró `pais` , ya que hay una gran cantidad de registros a la que no se tiene esta información, por lo que no sería útil para fines de investigación o análisis de datos. Tampoco se consideró el `id` como campo principal,teniendo en cuenta que es simplemente un identificador.
@@ -71,9 +71,9 @@ No se consideró `pais` , ya que hay una gran cantidad de registros a la que no 
 ### Comunicación entre procesos
 Se utilizó memoria compartida y tuberías para diversas funcionalidades:
 
-- **Memoria Compartida:** se implementó para comunicar los dos procesos para enviar los criterios de búsqueda (fecha, hora, idioma) y recibir resultados de la búsqueda (registros de `Tweet`) de la filtración al usuario.
+- **Memoria Compartida:** se implementó para comunicar los dos procesos para que la interfaz de usuario reciba los resultados de la búsqueda (registros de `Tweet`).
 
-- **Tuberías Nombradas (FIFOs)**: Se utilizan para la señalización y el envío de información de control, como el `testigo` para indicar que la búsqueda debe iniciar, y para enviar el `contador_coincidencias`, que indica el número de resultados debúsqueda al proceso de interfaz de usuario.
+- **Tuberías Nombradas (FIFOs)**: Se utilizan para la señalización y el envío de información de control, como el `testigo` para indicar que la búsqueda debe iniciar, y para enviar el `contador_coincidencias`, que indica el número de resultados debúsqueda al proceso de interfaz de usuario. Además, se envía la información de los criterios de búsqueda desde la interfaz de usuario al proceso de indexación/búsqueda.
 
 ### Indexación
 Para asegurar una búsqueda menor a 2 segundos, el sistema implementa una **tabla hash**.

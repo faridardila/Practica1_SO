@@ -11,11 +11,11 @@
 #include <signal.h>
 
 // Definiciones de tamaño para la tabla hash y rutas de archivos
-#define TAMANO_TABLA 1200003 
+#define TAMANO_TABLA 1000003 
 #define ARCHIVO_DATASET "/media/farid/OS1/Users/farid/Downloads/archive/full_dataset_clean.csv" 
 //#define ARCHIVO_DATASET "full_dataset_clean.csv" 
-#define ARCHIVO_INDICES "/media/farid/OS1/Users/farid/Downloads/archive/index.bin"
-//#define ARCHIVO_INDICES "index.bin"
+//#define ARCHIVO_INDICES "/media/farid/OS1/Users/farid/Downloads/archive/index.bin"
+#define ARCHIVO_INDICES "index.bin"
 
 // llaves para memoira compartida
 #define LLAVE_SHM_FECHA 123
@@ -24,7 +24,7 @@
 #define LLAVE_SHM_IDIOMA 789
 #define LLAVE_SHM_RESULTADOS 147
 
-#define LIMITE_BUFFER_RESULTADOS 100000
+#define LIMITE_BUFFER_RESULTADOS 40000
 
 // rutas para la creación de tuberias
 #define RUTA_FIFO_INDICE_TERMINADO "fifo_indice_terminado"

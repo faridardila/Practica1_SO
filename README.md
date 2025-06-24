@@ -36,7 +36,7 @@ Se ofrecen dos alternativas, según la conveniencia del usuario:"
     ```console
     make
     ./p2-dataProgram & ./p1-dataProgram
-    make clean //limpieza de ejecutables y archivos adicionales (no es necesario)
+    make clean # limpia los ejecutables y archivos generados (opcional)
     ```
 2. Mediante el script de bash (con permisos de ejecución previamente concedidos al usuario):
 
@@ -44,8 +44,7 @@ Se ofrecen dos alternativas, según la conveniencia del usuario:"
     ./executeme.sh
     ```
 
-De esta forma el programa de indexación y comunicación con el dataset se ejecutará en segundo plano y interfaz de usuario en primer plano.
-
+De esta forma, el programa encargado de la indexación y comunicación con el dataset se ejecutará en segundo plano, mientras que la interfaz de usuario se mantendrá en primer plano.
 
 ###  Funciones Clave
 

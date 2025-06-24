@@ -24,7 +24,7 @@ El *dataset* seleccionado, [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*]
 | **idioma** | Idioma en el que fue escrito el tweet (ej: en, es, ru). |
 | **pais** | Lugar de proveniencia del tweet. (ej: PA, RU).               | 
 
-**NOTA:** el *dataset* original esta en formato `.tsv`; sin embargo, para cumplir con los requerimientos de la práctica, se convirtió al formato `.csv`. LLa versión adaptada puede consultarse en el siguiente [*enlace*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv).
+**NOTA:** el *dataset* original esta en formato `.tsv`; sin embargo, para cumplir con los requerimientos de la práctica, se convirtió al formato `.csv`. La versión adaptada puede consultarse en el siguiente [*enlace*](https://drive.google.com/file/d/1LYDgP7psKjsBdR3FSvO-URfvH1k7OHWT/view?usp=sharing).
 
 ## Acerca del programa
 ### ¿Cómo ejecutar el programa?

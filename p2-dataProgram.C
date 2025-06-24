@@ -12,8 +12,8 @@
 
 // Definiciones de tamaño para la tabla hash y rutas de archivos
 #define TAMANO_TABLA 1000003 
-#define ARCHIVO_DATASET "/media/farid/OS1/Users/farid/Downloads/archive/full_dataset_clean.csv" 
-//#define ARCHIVO_DATASET "full_dataset_clean.csv" 
+//#define ARCHIVO_DATASET "/media/farid/OS1/Users/farid/Downloads/archive/full_dataset_clean.csv" 
+#define ARCHIVO_DATASET "full_dataset_clean.csv" 
 //#define ARCHIVO_INDICES "/media/farid/OS1/Users/farid/Downloads/archive/index.bin"
 #define ARCHIVO_INDICES "index.bin"
 

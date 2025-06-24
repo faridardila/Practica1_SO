@@ -15,7 +15,7 @@
 
 ## Acerca del dataset
 
-El dataset elegido [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv) contiene información de las conversaciones publicadas en Twitter referentes al COVID-19, con fines de investigación científica. Los datos que contiene el dataset se enuncian en la siguiente tabla:
+El dataset seleccionado, [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv), recopila información de conversaciones publicadas en Twitter relacionadas con el COVID-19. Su propósito principal es apoyar investigaciones científicas. A continuación, se describen los datos contenidos en el conjunto:
 | Campo           | Descripción                                        |
 | :-------------- | :------------------------------------------------- | 
 | **id** | El identificador unico para acceder a la información del tweet. | 

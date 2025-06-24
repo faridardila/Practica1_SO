@@ -105,7 +105,7 @@ Los ejemplos de uso se muestran a continuación:
     Idioma: en
     ```
 
-    Resultado: NA 
+    Resultado: NA (no se encontraron coincidencias)
 
     Video: [Ejemplo 1](https://drive.google.com/file/d/1yF3abt5WhG6Ga5k4F-qZr0c7M6LSZc5M/view?usp=sharing)
 

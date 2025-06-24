@@ -292,8 +292,6 @@ void ingresar_segundo_criterio(){
     char caracter_extra; // variable para verificar si hay caracteres extra después del número
     int resultado_del_escaneo;
 
-    // ingresar tiempo inicial
-
     // ingresar hora inicial
     do {
         printf("Por favor, ingrese la hora inicial (entre 0 y 23)\n");

@@ -18,11 +18,11 @@
 El *dataset* seleccionado, [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv), recopila información de conversaciones publicadas en Twitter relacionadas con el COVID-19. Su propósito principal es apoyar investigaciones científicas. A continuación, se describen los datos contenidos en el conjunto datos:
 | Campo           | Descripción                                        |
 | :-------------- | :------------------------------------------------- | 
-| **id** | El identificador unico para acceder a la información del tweet. | 
-| **fecha** | La fecha de publicación del tweet (AAAA-MM-DD).    |
-| **hora** | La hora de publicación del tweet (HH:MM:SS).       |
-| **idioma** | El idioma en el que fue escrito el tweet (ej: en, es, ru). |
-| **pais** | El lugar de proveniencia del tweet. (ej: PA, RU).               | 
+| **id** | Identificador unico para acceder a la información del tweet. | 
+| **fecha** | Fecha de publicación del tweet (AAAA-MM-DD).    |
+| **hora** | Hora de publicación del tweet (HH:MM:SS).       |
+| **idioma** | Idioma en el que fue escrito el tweet (ej: en, es, ru). |
+| **pais** | Lugar de proveniencia del tweet. (ej: PA, RU).               | 
 
 **NOTA:** el *dataset* original esta en formato `.tsv`; sin embargo, para cumplir con los requerimientos de la práctica, se convirtió al formato `.csv`. LLa versión adaptada puede consultarse en el siguiente [*enlace*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv).
 
@@ -48,17 +48,17 @@ De esta forma, el programa encargado de la indexación y comunicación con el *d
 
 ###  Funciones Clave
 
-Para el correcto funcionamiento del programa, se ejecutan dos procesos no emparentados.
+Para el correcto funcionamiento del programa, se ejecutan dos procesos independientes (no emparentados) que se comunican entre sí.
 
-1. El primer proceso, con su código fuente `p1-dataProgram.c` se ocupa de la interacción con el usuario.
+El primer proceso, con su código fuente `p1-dataProgram.c` se ocupa de la interacción con el usuario.
 
-    * buscar(): función la cual se comunica con el proceso de indexación/búsqueda para enviar los criterios de búsqueda y recibir los resultados, para mostrarlos en una tabla, además de la cantidad de registros encontrados.
+* buscar(): función la cual se comunica con el proceso de indexación/búsqueda para enviar los criterios de búsqueda y recibir los resultados, para mostrarlos en una tabla, además de la cantidad de registros encontrados.
 
   
-2. El primer proceso, con su código fuente `p2-dataProgram.c` se ocupa de la creación de la indexación y búsqueda de los registros de acuerdo con los criterios de búsqueda enviados por la interfaz de usuario.
+El primer proceso, con su código fuente `p2-dataProgram.c` se ocupa de la creación de la indexación y búsqueda de los registros de acuerdo con los criterios de búsqueda enviados por la interfaz de usuario.
     
-    * crear_tabla_hash(): función para crear la tabla hash en disco (indexando el apuntador al registro en el CSV)
-    * busqueda(): función para buscar los registros en el archivo CSV que tengan alguna coincidencia con los criterios de búsqueda, utilizando la tabla hash.
+* crear_tabla_hash(): función para crear la tabla hash en disco (indexando el apuntador al registro en el CSV)
+* busqueda(): función para buscar los registros en el archivo CSV que tengan alguna coincidencia con los criterios de búsqueda, utilizando la tabla hash.
 
 
 ## Justificación del programa

@@ -83,12 +83,13 @@ La implementación hace uso de memoria compartida y tuberías como mecanismos de
 
 - **Memoria compartida:** este mecanismo es implementado para permitir que la interfaz de usuario transmita los criterios al proceso de busqueda y, a su vez, reciba los resultados obtenidos (registros correspondientes a tweets).
 
-- **Tuberías Nombradas (FIFOs)**: este mecanismo se emplea para la señalización y el intercambio de información de control. Por ejemplo, se utiliza `testigo` para indicar el inicio de la búsqueda y se envía `cantidad_coincidencias` que comunica al proceso de interfaz de usuario el número de resultados obtenidos. 
+- **Tuberías nombradas (FIFO)**: este mecanismo se emplea para la señalización y el intercambio de información de control. Por ejemplo, se utiliza `testigo` para indicar el inicio de la búsqueda y se envía `cantidad_coincidencias` que comunica al proceso de interfaz de usuario el número de resultados obtenidos. 
 
 ### Indexación
-Para asegurar una búsqueda menor a 2 segundos, el sistema implementa una **tabla hash**.
+Para asegurar una búsqueda menor a dos segundos, el sistema implementa una **tabla hash**.
 
-* **Creación del Índice**: Al iniciar el programa por primera vez (o si el archivo de índice no existe), se crea un archivo `index.bin`. Este archivo binario almacena la tabla de cabeceras de la tabla hash y los nodos del índice. Cada nodo contiene `offset_csv` que apunta al inicio de la línea correspondiente en el archivo CSV y `offset_siguiente_nodo` que apunta al siguiente nodo para manejar colisiones mediante listas enlazadas en el propio archivo `index.bin`.
+* **Creación del Índice**: cuando el programa se ejecuta por primera vez (o si el archivo de índice aún no ha sido creado) se genera un archivo binario denominado `index.bin`. Este archivo contiene una tabla hash estructurada en dos componentes principales: la tabla de cabeceras y una serie de nodos de índice. Cada nodo incluye un `offset_csv`, que señala la posición exacta del registro en el archivo `.csv`, y un `offset_siguiente_nodo`, que permite gestionar colisiones mediante listas enlazadas implementadas dentro del mismo archivo binario `index.bin`.
+  
 * **Función Hash**: Se utiliza la función `hash_djb2` para realizar la indexación a partir de la fecha. Para manejar las colisiones, se utilizan listas enlazadas.
     * **¿Por qué el algoritmo djb2?**: El hash djb2 es un algoritmo de hashing desarrollado por Daniel J. Bernstein a mediados de la década de 1990. 
     

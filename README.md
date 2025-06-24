@@ -1,6 +1,13 @@
 
 # Práctica I - Sistemas Operativos
 
+### Integrantes del grupo
+
+| Nombre           | GitHub   | Contacto              |
+| ---------------- | -------- |-------------------------|
+| Deivid Farid Ardila Herrera | faridardila | deardilah@unal.edu.co |
+| Cristofer Damián Camilo Ordoñez Osa | cristoferOrdonez| crordonezo@unal.edu.co |
+
 ## Acerca del dataset
 
 El dataset elegido [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv) contiene información de los tweets publicados con conversaciones relacionadas al COVID-19, con fines de investigación científica. Los datos que contiene el dataset se enuncian en la siguiente tabla:
@@ -14,16 +21,33 @@ El dataset elegido [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](https:/
 
 ## Acerca del programa
 
-
-### ¿Cómo utilizar el programa?
+### ¿Cómo ejecutar el programa?
 
 Luego de realizar la compilación mediante la instrucción `make`, se ejecuta la siguiente instrucción en la terminal:
 
 ```console
-./p2-dataProgram.c & ./p1-dataProgram.c 
+./p2-dataProgram & ./p1-dataProgram
 ```
 
 De esta forma el programa de indexación y comunicación con el dataset se ejecutará en segundo plano y interfaz de usuario en primer plano.
+
+
+###  Funciones Clave
+
+Para el correcto funcionamiento del programa, se ejecutan dos procesos no emparentados
+
+1. El primer proceso, con su código fuente `p1-dataProgram.c` se ocupa de la interacción con el usuario.
+
+    * buscar(): función la cual se comunica con el proceso de indexación/búsqueda para enviar los criterios de búsqueda y recibir los resultados, para mostrarlos en una tabla, además de la cantidad de registros encontrados.
+
+  
+2. El primer proceso, con su código fuente `p1-dataProgram.c` se ocupa de la creación de la indexación y búsqueda de los registros de acuerdo con los criterios de búsqueda enviados por la interfaz de usuario.
+    
+    * crear_tabla_hash(): función para crear la tabla hash en disco (indexando el apuntador al registro en el CSV)
+    * busqueda(): función para buscar en el CSV usando la tabla hash 
+
+
+## Justificación del programa
 
 
 ### Campos de búsqueda
@@ -46,13 +70,18 @@ Se utilizó memoria compartida y tuberías para diversas funcionalidades:
 
 - **Tuberías Nombradas (FIFOs)**: Se utilizan para la señalización y el envío de información de control, como el `testigo` para indicar que la búsqueda debe iniciar, y para enviar el `contador_coincidencias`, que indica el número de resultados debúsqueda al proceso de interfaz de usuario.
 
-### Indexación y Búsqueda
-
+### Indexación
 Para asegurar una búsqueda menor a 2 segundos, el sistema implementa una **tabla hash**.
 
 * **Creación del Índice**: Al iniciar el programa por primera vez (o si el archivo de índice no existe), se crea un archivo `index.bin`. Este archivo binario almacena la tabla de cabeceras de la tabla hash y los nodos del índice. Cada nodo contiene un offset que apunta al inicio de la línea correspondiente en el archivo CSV y un offset para manejar colisiones mediante listas enlazadas en el propio archivo `index.bin`.
 * **Función Hash**: Se utiliza la función `hash_djb2` para realizar la indexación a partir de la fecha. Para manejar las colisiones, se utilizan listas enlazadas.
-    * **¿Por qué el algoritmo djb2?**: El hash djb2 es un algoritmo de hashing ampliamente reconocido desarrollado por Daniel J. Bernstein a mediados de la década de 1990. Este algoritmo es particularmente admirado por su simplicidad y eficiencia, por lo que se tomó en cuenta para la implementación de la tabla hash, además de su practicidad si se toman strings como llaves para el hasheo.
+    * **¿Por qué el algoritmo djb2?**: El hash djb2 es un algoritmo de hashing desarrollado por Daniel J. Bernstein a mediados de la década de 1990. 
+    
+        Su construcción basada en operaciones de desplazamiento de bits y adición, permite que se ejecute muy rápidamente. Esto es crucial para el programa, ya que se necesita un rendimiento de búsqueda inferior a 2 segundos.
+        
+        Asimismo, la simplicidad de su algoritmo lo hace fácil de implementar en código, lo que facilitó el desarrollo del sistema de indexación.
+
+
 * **Búsqueda**: Cuando se realiza una búsqueda, el proceso de búsqueda accede directamente a las posiciones en el archivo CSV a través de los offsets almacenados en el `index.bin`, lo que evita la necesidad de cargar todo el dataset en memoria.
 
 

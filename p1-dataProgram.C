@@ -9,6 +9,7 @@
 #include <fcntl.h>
 #include <sys/shm.h>
 #include <signal.h>
+#include <time.h>
 
 // opciones del menu
 #define INGRESAR_PRIMER_CRITERIO 1
@@ -542,16 +543,16 @@ void buscar(){
 
     char testigo[2] = ESTADO_CONTINUAR;
     struct Tweet *ap_tweet;
-    time_t inicio, fin;
     int cantidad_resultados;
+    struct timespec inicio, final;
+
+    clock_gettime(CLOCK_MONOTONIC, &inicio);
 
     // se le envian al procedimiento p2-dataProgram los criterios, a través de memoria compartida
     strcpy(ap_fecha, criterio_fecha);
     strcpy(ap_tiempo_inicial, criterio_tiempo_inicio);
     strcpy(ap_tiempo_final, criterio_tiempo_final);
     strcpy(ap_idioma, criterio_idioma);
-
-    inicio = clock();
 
     // se le indica (a través de una tuberia) al procedimiento p2-dataProgram que los datos ya han sido colocados en la memoria compartida
     escribir_en_tuberia(fd_continuidad, testigo, sizeof(testigo));
@@ -622,11 +623,15 @@ void buscar(){
         for (int i = 0; i < ANCHO_PAIS + 2; i++) printf("-");
         printf("+\n");
 
-        fin = clock();
-
         cerrar_memoria_compartida(ap_tweet, id_shm_resultados);
 
-        printf("Se han encontrado %d resultados en %.20lf segundos.\n", cantidad_resultados, (double)(fin - inicio)/CLOCKS_PER_SEC);
+        clock_gettime(CLOCK_MONOTONIC, &final);
+
+        long segundos = final.tv_sec - inicio.tv_sec;
+        long nanosegundos = final.tv_nsec - inicio.tv_nsec;
+        double tiempo_transcurrido = segundos + nanosegundos / 1000000000.0;
+
+        printf("Se han encontrado %d resultados en %.20lf segundos.\n", cantidad_resultados, tiempo_transcurrido);
 
     } else { // si no se encontraron resultados, se imprime NA
         printf("\nNA\n");

@@ -18,7 +18,7 @@
 El dataset elegido [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv) contiene información de los tweets publicados con conversaciones relacionadas al COVID-19, con fines de investigación científica. Los datos que contiene el dataset se enuncian en la siguiente tabla:
 | Campo           | Descripción                                        |
 | :-------------- | :------------------------------------------------- | 
-| **id** | El identificador para acceder a la información del tweet. | 
+| **id** | El identificador unico para acceder a la información del tweet. | 
 | **fecha** | La fecha de publicación del tweet (AAAA-MM-DD).    |
 | **hora** | La hora de publicación del tweet (HH:MM:SS).       |
 | **idioma** | El idioma en el que fue escrito el tweet (ej: en, es, ru). |
@@ -36,7 +36,7 @@ Se contemplan dos opciones, de acuerdo a la comodidad del usuario:
     make
     ./p2-dataProgram & ./p1-dataProgram
     ```
-2. Mediante el script de bash (con permisos de ejecución previamente concedidos):
+2. Mediante el script de bash (con permisos de ejecución previamente concedidos al usuario):
 
     ```console
     ./executeme.sh

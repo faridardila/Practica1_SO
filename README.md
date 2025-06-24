@@ -75,14 +75,15 @@ Para llevar a cabo la búsqueda de registros en el *dataset*, se seleccionaron l
 | **idioma** | El filtrado por idioma permite comprender los distintos contextos culturales y geográficos durante el desarrollo de la pandemia. A través de este análisis, es posible identificar percepciones, preocupaciones y posibles focos de desinformación presentes en diversas comunidades lingüísticas.  | Código alfabético de 2 o 3 letras. |
 
 
-No se consideró `pais` , ya que hay una gran cantidad de registros a la que no se tiene esta información, por lo que no sería útil para fines de investigación o análisis de datos. Tampoco se consideró el `id` como campo principal, teniendo en cuenta que no es probable que un usuario común tenga la información del identificador de un tweet para realizar una búsqueda.
+No se consideró el campo `pais`, ya que una gran parte de los registros carece de esta información, lo que limita su utilidad para fines de investigación o análisis de datos; tampoco se incluyó el campo `id` como criterio principal de búsqueda, dado que es poco probable que un usuario común disponga del identificador exacto de un tweet para realizar consultas específicas.
 
 ### Comunicación entre procesos
-Se utilizó memoria compartida y tuberías para diversas funcionalidades:
 
-- **Memoria Compartida:** se implementó para comunicar los dos procesos para que la interfaz de usuario reciba los resultados de la búsqueda (registros de `Tweet`).
+La implementación hace uso de memoria compartida y tuberías como mecanismos de comunicación entre procesos (IPC):
 
-- **Tuberías Nombradas (FIFOs)**: Se utilizan para la señalización y el envío de información de control, como el `testigo` para indicar que la búsqueda debe iniciar, y para enviar el `contador_coincidencias`, que indica el número de resultados debúsqueda al proceso de interfaz de usuario. Además, se envía la información de los criterios de búsqueda desde la interfaz de usuario al proceso de indexación/búsqueda.
+- **Memoria compartida:** este mecanismo es implementado para permitir que la interfaz de usuario transmita los criterios al proceso de busqueda y, a su vez, reciba los resultados obtenidos (registros correspondientes a tweets).
+
+- **Tuberías Nombradas (FIFOs)**: este mecanismo se emplea para la señalización y el intercambio de información de control. Por ejemplo, se utiliza `testigo` para indicar el inicio de la búsqueda y se envía `cantidad_coincidencias` que comunica al proceso de interfaz de usuario el número de resultados obtenidos. 
 
 ### Indexación
 Para asegurar una búsqueda menor a 2 segundos, el sistema implementa una **tabla hash**.

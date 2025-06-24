@@ -17,7 +17,7 @@
 #define ARCHIVO_INDICES "/media/farid/OS1/Users/farid/Downloads/archive/index.bin"
 //#define ARCHIVO_INDICES "index.bin"
 
-// llaves para memoria compartida
+// llaves para memoira compartida
 #define LLAVE_SHM_FECHA 123
 #define LLAVE_SHM_TIEMPO_INICIAL 456
 #define LLAVE_SHM_TIEMPO_FINAL 986

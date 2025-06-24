@@ -24,12 +24,12 @@ El *dataset* seleccionado, [*COVID-19 : Twitter Dataset Of 100+ Million Tweets*]
 | **idioma** | El idioma en el que fue escrito el tweet (ej: en, es, ru). |
 | **pais** | El lugar de proveniencia del tweet. (ej: PA, RU).               | 
 
-**NOTA:** el *dataset* original se encuentra en formato `.tsv`, sin embargo, para cumplir con los requerimientos de la practica, se conviritio a formato `.csv`. La versión con el nuevo formato puede encontrarse en este [*enlace*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv).
+**NOTA:** el *dataset* original esta en formato `.tsv`; sin embargo, para cumplir con los requerimientos de la práctica, se convirtió al formato `.csv`. LLa versión adaptada puede consultarse en el siguiente [*enlace*](https://www.kaggle.com/datasets/adarshsng/covid19-twitter-dataset-of-100-million-tweets?select=full_dataset_clean.tsv).
 
 ## Acerca del programa
 ### ¿Cómo ejecutar el programa?
 
-Se ofrecen dos alternativas, según la conveniencia del usuario:"
+Se ofrecen dos alternativas, según la conveniencia del usuario:
 
 1. Ejecutando manualmente los comandos en consola:
 
@@ -44,7 +44,7 @@ Se ofrecen dos alternativas, según la conveniencia del usuario:"
     ./executeme.sh
     ```
 
-De esta forma, el programa encargado de la indexación y comunicación con el dataset se ejecutará en segundo plano, mientras que la interfaz de usuario se mantendrá en primer plano.
+De esta forma, el programa encargado de la indexación y comunicación con el *dataset* se ejecutará en segundo plano, mientras que la interfaz de usuario se mantendrá en primer plano.
 
 ###  Funciones Clave
 

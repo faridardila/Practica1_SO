@@ -90,12 +90,10 @@ Para asegurar una búsqueda menor a dos segundos, el sistema implementa una **ta
 
 * **Creación del Índice**: cuando el programa se ejecuta por primera vez (o si el archivo de índice aún no ha sido creado) se genera un archivo binario denominado `index.bin`. Este archivo contiene una tabla hash estructurada en dos componentes principales: la tabla de cabeceras y una serie de nodos de índice. Cada nodo incluye un `offset_csv`, que señala la posición exacta del registro en el archivo `.csv`, y un `offset_siguiente_nodo`, que permite gestionar colisiones mediante listas enlazadas implementadas dentro del mismo archivo binario `index.bin`.
   
-* **Función Hash**: Se utiliza la función `hash_djb2` para realizar la indexación a partir de la fecha. Para manejar las colisiones, se utilizan listas enlazadas.
-    * **¿Por qué el algoritmo djb2?**: El hash djb2 es un algoritmo de hashing desarrollado por Daniel J. Bernstein a mediados de la década de 1990. 
-    
-        Su construcción basada en operaciones de desplazamiento de bits y adición, permite que se ejecute muy rápidamente. Esto es crucial para el programa, ya que se necesita un rendimiento de búsqueda inferior a 2 segundos.
+* **Función Hash**: para realizar la indexación a partir de la fecha, se utiliza la función `hash_djb2`, conocida por su simplicidad y por su buen desempeño en la distribución de claves. En caso de colisiones, estas se manejan mediante listas enlazadas, permitiendo almacenar múltiples entradas que comparten la misma posición en la tabla hash.
+    * **¿Por qué el algoritmo djb2?** El algoritmo de hashing `djb2` fue desarrollado por Daniel J. Bernstein a mediados de la década de 1990. Su diseño, basado en operaciones simples como desplazamientos de bits y sumas, permite una ejecución extremadamente rápida; esta característica resulta fundamental para el programa, ya que se requiere un tiempo de búsqueda inferior a los dos segundos.
         
-        Asimismo, la simplicidad de su algoritmo lo hace fácil de implementar en código, lo que facilitó el desarrollo del sistema de indexación.
+        Además, la simplicidad de su implementación facilita su integración en el código, lo cual fue especialmente útil durante el desarrollo del sistema de indexación.
 
 
 * **Búsqueda**: Cuando se realiza una búsqueda, el proceso de búsqueda accede directamente a las posiciones en el archivo CSV a través de los offsets almacenados en el `index.bin`, lo que evita la necesidad de cargar todo el dataset en memoria.

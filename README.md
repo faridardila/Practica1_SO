@@ -57,7 +57,7 @@ Para el correcto funcionamiento del programa, se ejecutan dos procesos no empare
 2. El primer proceso, con su código fuente `p2-dataProgram.c` se ocupa de la creación de la indexación y búsqueda de los registros de acuerdo con los criterios de búsqueda enviados por la interfaz de usuario.
     
     * crear_tabla_hash(): función para crear la tabla hash en disco (indexando el apuntador al registro en el CSV)
-    * busqueda(): función para buscar en el CSV usando la tabla hash 
+    * busqueda(): función para buscar los registros en el archivo CSV que tengan alguna coincidencia con los criterios de búsqueda, utilizando la tabla hash.
 
 
 ## Justificación del programa
@@ -70,11 +70,11 @@ Para el funcionamiento de la búsqueda de registros en el dataset, se escogieron
 | Campo           | Justificación                                        | Rango     |
 | :-------------- | :------------------------------------------------- | -------------|
 | **fecha** | el filtrado por fecha permitiría analizar cómo las conversaciones del COVID-19 evolucionaron a lo largo de distintos periodos (anuncio de la pandemia, distribución de vacunas, aparición de nuevas variantes).    |Fechas entre 2019 y el año actual|
-| **tiempo (inicial y final)** | el filtrado por tiempo permite detectar picos de tránsito en la aplicación por la cantidad de tweets publicados en horas específicas. Esto también está relacionado con la fecha, teniendo en cuenta los periodos clave durante la pandemia.       | Horas entre 00:00:00 y 23:00:00. |
+| **tiempo (inicial y final)** | el filtrado por tiempo permite detectar picos de tránsito en la aplicación por la cantidad de tweets publicados en horas específicas. Esto también está relacionado con la fecha, teniendo en cuenta los periodos clave durante la pandemia.       | Horas entre 00:00:00 y 23:59:59. |
 | **idioma** | el filtrado por idioma permite entender los diferentes contextos culturales y geográficos durante el tiempo de la pandemia. Se puede analizar la percepción, preocupaciones y desinformación de distintas comunidades linguísticas.  | Código de 2 ó 3 letras (alfabético).  |
 
 
-No se consideró `pais` , ya que hay una gran cantidad de registros a la que no se tiene esta información, por lo que no sería útil para fines de investigación o análisis de datos. Tampoco se consideró el `id` como campo principal,teniendo en cuenta que es simplemente un identificador.
+No se consideró `pais` , ya que hay una gran cantidad de registros a la que no se tiene esta información, por lo que no sería útil para fines de investigación o análisis de datos. Tampoco se consideró el `id` como campo principal, teniendo en cuenta que no es probable que un usuario común tenga la información del identificador de un tweet para realizar una búsqueda.
 
 ### Comunicación entre procesos
 Se utilizó memoria compartida y tuberías para diversas funcionalidades:

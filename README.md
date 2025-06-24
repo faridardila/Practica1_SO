@@ -41,7 +41,7 @@ Para el correcto funcionamiento del programa, se ejecutan dos procesos no empare
     * buscar(): función la cual se comunica con el proceso de indexación/búsqueda para enviar los criterios de búsqueda y recibir los resultados, para mostrarlos en una tabla, además de la cantidad de registros encontrados.
 
   
-2. El primer proceso, con su código fuente `p1-dataProgram.c` se ocupa de la creación de la indexación y búsqueda de los registros de acuerdo con los criterios de búsqueda enviados por la interfaz de usuario.
+2. El primer proceso, con su código fuente `p2-dataProgram.c` se ocupa de la creación de la indexación y búsqueda de los registros de acuerdo con los criterios de búsqueda enviados por la interfaz de usuario.
     
     * crear_tabla_hash(): función para crear la tabla hash en disco (indexando el apuntador al registro en el CSV)
     * busqueda(): función para buscar en el CSV usando la tabla hash 

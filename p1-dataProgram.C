@@ -324,8 +324,9 @@ void ingresar_segundo_criterio(){
 
     sprintf(criterio_tiempo_final, "%02d:59:59", hora_inicial);
 
-    printf("\nSu hora inicial es: %s\n", criterio_tiempo_inicio);
-    printf("Su hora fianl es: %s\n", criterio_tiempo_final);
+
+    printf("\nTiempo inicial establecido en: %s\n", criterio_tiempo_inicio);
+    printf("Tiempo final establecido en: %s\n", criterio_tiempo_final);
     
 }
 

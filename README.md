@@ -105,49 +105,49 @@ Los ejemplos de uso se muestran a continuación:
 
 - Ejemplo 1: 
     ```console
-    Fecha: 2020-03-08
-
-    Tiempo inicial: 00:00:00
-
-    Tiempo final: 00:00:00
-
-    Idioma: en
-    ```
-
-    Resultado: NA (no se encontraron coincidencias)
-
-    Video: [Ejemplo 1](https://drive.google.com/file/d/1yF3abt5WhG6Ga5k4F-qZr0c7M6LSZc5M/view?usp=sharing)
-
-- Ejemplo 2:
-
-    ```console
-    Fecha: 2021-01-01
-
-    Tiempo inicial: 02:02:02
-
-    Tiempo final: 02:02:02
-
-    Idioma: en
-    ```
-
-    Resultado: 13 registros encontrados
-
-    Video: [Ejemplo 2](https://drive.google.com/file/d/1-6B5TzvgpbSCA95nIgSeB-yKL_XSgTL-/view?usp=sharing)
-
-- Ejemplo 3:
-
-    ```console
     Fecha: 2020-01-01
-    
-    Tiempo inicial: 20:28:39
-    
-    Tiempo final: 20:28:39
-    
+
+    Tiempo inicial: 20:00:00
+
+    Tiempo final: 20:59:59
+
     Idioma: ru
     ```
 
     Resultado: 1 registro encontrado
 
-    Video: [Ejemplo 3](https://drive.google.com/file/d/15bwUQCBrp1Gmj93Isn6xhRJHGIDZckN_/view?usp=sharing)
+    Video: [Ejemplo 1](https://drive.google.com/file/d/1VEdjghm3uvqWfeGLHnL0Sjl_xxe1FcXe/view?usp=drive_link)
+
+- Ejemplo 2:
+
+    ```console
+    Fecha: 2020-04-13
+
+    Tiempo inicial: 12:00:00
+
+    Tiempo final: 12:59:59
+
+    Idioma: en
+    ```
+
+    Resultado: 24830 registros encontrados
+
+    Video: [Ejemplo 2](https://drive.google.com/file/d/1qU5eIIgvN0HXsgc3fR_f5Y31b1bfMHkf/view?usp=drive_link)
+
+- Ejemplo 3:
+
+    ```console
+    Fecha: 2022-02-02
+    
+    Tiempo inicial: 12:00:00
+    
+    Tiempo final: 12:59:59
+    
+    Idioma: en
+    ```
+
+    Resultado: NA (ningún registro encontrado)
+
+    Video: [Ejemplo 3](https://drive.google.com/file/d/18mNGt6nH92AMWmbjipHSdxCeOylQR-L_/view?usp=sharing)
 
 

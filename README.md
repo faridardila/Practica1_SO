@@ -71,9 +71,10 @@ Para llevar a cabo la búsqueda de registros en el *dataset*, se seleccionaron l
 | Criterio           | Justificación                                        | Rango     |
 | :-------------- | :------------------------------------------------- | -------------|
 | **fecha** | El filtrado por fecha permite analizar la evolución de las conversaciones sobre el COVID-19 a lo largo de distintos períodos relevantes, como el anuncio de la pandemia, la distribución de vacunas o la aparición de nuevas variantes. |Fechas entre 2019 y el año actual|
-| **tiempo (inicial y final)** | El análisis temporal mediante el filtrado por rangos de hora permite detectar concentraciones de actividad en momentos específicos del día, evidenciadas por el volumen de tweets publicados. Esta información, combinada con el filtrado por fecha, resulta útil para identificar patrones de comportamiento durante períodos críticos de la pandemia.       | Horas entre 00:00:00 y 23:59:59. |
+| **Rango de tiempo (inicial y final)** | El análisis temporal mediante el filtrado por rangos de hora permite detectar concentraciones de actividad en momentos específicos del día, evidenciadas por el volumen de tweets publicados. Esta información, combinada con el filtrado por fecha, resulta útil para identificar patrones de comportamiento durante períodos críticos de la pandemia.       | Horas entre 00:00:00 y 23:59:59. |
 | **idioma** | El filtrado por idioma permite comprender los distintos contextos culturales y geográficos durante el desarrollo de la pandemia. A través de este análisis, es posible identificar percepciones, preocupaciones y posibles focos de desinformación presentes en diversas comunidades lingüísticas.  | Código alfabético de 2 o 3 letras. |
 
+**Nota:** para seleccionar el rango de tiempo, el usuario elige un número entre 0 y 23. Si el número seleccionado es `xx`, el tiempo inicial se define como `xx:00:00` y el tiempo final como `xx:59:59`.
 
 No se consideró el campo `pais`, ya que una gran parte de los registros carece de esta información, lo que limita su utilidad para fines de investigación o análisis de datos; tampoco se incluyó el campo `id` como criterio principal de búsqueda, dado que es poco probable que un usuario común disponga del identificador exacto de un tweet para realizar consultas específicas.
 
@@ -100,7 +101,6 @@ Para asegurar una búsqueda menor a dos segundos, el sistema implementa una **ta
 
 
 ## Ejemplos de uso 
-
 Los ejemplos de uso se muestran a continuación:
 
 - Ejemplo 1: 
@@ -116,7 +116,7 @@ Los ejemplos de uso se muestran a continuación:
 
     Resultado: 1 registro encontrado
 
-    Video: [Ejemplo 1](https://drive.google.com/file/d/1VEdjghm3uvqWfeGLHnL0Sjl_xxe1FcXe/view?usp=drive_link)
+    Video: [Ejemplo 1](https://drive.google.com/file/d/1AYK4Yz7COyori-oqr7MMEHBXAkKNjMO_/view?usp=sharing)
 
 - Ejemplo 2:
 
@@ -132,7 +132,7 @@ Los ejemplos de uso se muestran a continuación:
 
     Resultado: 24830 registros encontrados
 
-    Video: [Ejemplo 2](https://drive.google.com/file/d/1qU5eIIgvN0HXsgc3fR_f5Y31b1bfMHkf/view?usp=drive_link)
+    Video: [Ejemplo 2](https://drive.google.com/file/d/1XIfN6gD_6xHiYp797WmRYHahn8rRYEiI/view?usp=sharing)
 
 - Ejemplo 3:
 
@@ -148,6 +148,5 @@ Los ejemplos de uso se muestran a continuación:
 
     Resultado: NA (ningún registro encontrado)
 
-    Video: [Ejemplo 3](https://drive.google.com/file/d/18mNGt6nH92AMWmbjipHSdxCeOylQR-L_/view?usp=sharing)
-
+    Video: [Ejemplo 3](https://drive.google.com/file/d/1VeaCZb_lbCQpZytS_J-uPdTz8qs0GRq3/view?usp=sharing)
 

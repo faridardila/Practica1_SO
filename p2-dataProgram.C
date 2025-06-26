@@ -399,8 +399,7 @@ void cerrar_proceso(){
     close(fd_resultados);
     close(fd_continuidad);
 
-    kill(getpid(),SIGTERM); // SIGTERM se considera una forma menos abrupta para cerrar un programa
-
+    exit(0);
 }
 
 
